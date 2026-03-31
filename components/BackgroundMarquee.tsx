@@ -15,7 +15,6 @@ export default function BackgroundMarquee() {
                 }}
                 transition={{
                     repeat: Infinity,
-                    ease: "linear",
                     duration: 30,
                 }}
             >
@@ -41,7 +40,6 @@ export default function BackgroundMarquee() {
                 }}
                 transition={{
                     repeat: Infinity,
-                    ease: "linear",
                     duration: 25,
                 }}
             >

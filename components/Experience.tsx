@@ -36,7 +36,7 @@ export default function Experience() {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, ease: "easeOut", delay: idx * 0.1 }}
+                            transition={{ duration: 0.8, delay: idx * 0.1 }}
                             className="group relative overflow-hidden rounded-[1.5rem] bg-[var(--color-surface-container)] p-8 md:p-12 transition-all duration-700 hover:bg-[#222a3d] hover:shadow-[0_20px_40px_var(--color-cyan-glow)]"
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">

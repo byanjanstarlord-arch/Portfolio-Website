@@ -42,8 +42,7 @@ export default function TechStack() {
                             transition={{
                                 y: {
                                     duration: 4 + (idx % 3),
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
+                                    repeat: Infinity
                                 }
                             }}
                             className="px-6 py-3 rounded-full bg-[var(--color-surface-container)] border border-white/10 text-[#dae2fd]/80 font-medium tracking-wide shadow-lg backdrop-blur-md cursor-pointer transition-colors duration-300 relative overflow-hidden"

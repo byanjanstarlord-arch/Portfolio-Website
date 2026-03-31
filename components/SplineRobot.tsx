@@ -58,8 +58,7 @@ function LoaderSkeleton() {
                 transition={{
                     duration: 1.5,
                     repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut"
+                    repeatType: "reverse"
                 }}
                 className="w-24 h-24 rounded-full border border-[#89ceff]/40 shadow-[0_0_20px_rgba(137,206,255,0.3)] bg-gradient-to-tr from-[#89ceff]/10 to-transparent flex items-center justify-center"
             >
