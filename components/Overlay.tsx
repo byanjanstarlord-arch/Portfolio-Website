@@ -28,14 +28,14 @@ export default function Overlay({ scrollYProgress }: { scrollYProgress: MotionVa
                 style={{ opacity: opacity1, y: y1 }}
                 className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center px-6"
             >
-                <motion.h1 
+                <motion.h1
                     style={{ fontWeight: fontWeight1 }}
-                    className="text-5xl md:text-8xl tracking-tighter text-[#dae2fd]/70 drop-shadow-2xl text-center uppercase"
+                    className="text-5xl md:text-8xl tracking-tighter text-[#ffffff]/70 drop-shadow-2xl text-center uppercase"
                 >
                     Byanjan Behera
-                    <motion.span 
+                    <motion.span
                         style={{ fontWeight: fontWeight1 }}
-                        className="block text-2xl md:text-4xl text-[#89ceff]/90 tracking-normal mt-4 uppercase drop-shadow-md"
+                        className="block text-2xl md:text-4xl text-[#ffffff]/90 tracking-normal mt-4 uppercase drop-shadow-md"
                     >
                         Full Stack Developer
                     </motion.span>
@@ -47,11 +47,11 @@ export default function Overlay({ scrollYProgress }: { scrollYProgress: MotionVa
                 style={{ opacity: opacity2, y: y2 }}
                 className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-start pl-[10%] pr-[5%]"
             >
-                <motion.h2 
+                <motion.h2
                     style={{ fontWeight: fontWeight2 }}
-                    className="text-4xl md:text-7xl tracking-tight text-[#dae2fd]/80 drop-shadow-2xl max-w-3xl leading-tight"
+                    className="text-4xl md:text-7xl tracking-tight text-[#ffffff]/80 drop-shadow-2xl max-w-3xl leading-tight"
                 >
-                    I build <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#89ceff] to-[#4edea3]">robust full stack applications.</span>
+                    I build <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ffffff] to-[#ffffff]">robust full stack applications.</span>
                 </motion.h2>
             </motion.div>
 
@@ -60,12 +60,12 @@ export default function Overlay({ scrollYProgress }: { scrollYProgress: MotionVa
                 style={{ opacity: opacity3, y: y3 }}
                 className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-end pr-[10%] pl-[5%] text-right"
             >
-                <motion.h2 
+                <motion.h2
                     style={{ fontWeight: fontWeight3 }}
-                    className="text-4xl md:text-7xl tracking-tight text-[#dae2fd]/80 drop-shadow-2xl leading-tight"
+                    className="text-4xl md:text-7xl tracking-tight text-[#ffffff]/80 drop-shadow-2xl leading-tight"
                 >
                     Bridging logic, <br />
-                    <span className="text-[#89ceff]/90">
+                    <span className="text-[#ffffff]/90">
                         data, and <br className="md:hidden" />
                         <span className="hidden md:inline"><br /></span>
                         performance.

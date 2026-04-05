@@ -55,7 +55,7 @@ export default function CustomCursor() {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-8 h-8 border border-[#89ceff] rounded-full pointer-events-none z-[9999] mix-blend-screen"
+            className="fixed top-0 left-0 w-8 h-8 border border-[#ffffff] rounded-full pointer-events-none z-[9999] mix-blend-screen"
             variants={variants}
             animate={isHovering ? "hover" : "default"}
             transition={{

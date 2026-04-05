@@ -100,7 +100,7 @@ export default function ScrollyCanvas() {
                     ref={canvasRef}
                     className="absolute inset-0 w-full h-full block"
                 />
-                <div className="absolute inset-0 bg-[#0b1326]/40 pointer-events-none" />
+                <div className="absolute inset-0 bg-[#000000]/40 pointer-events-none" />
                 <Overlay scrollYProgress={scrollYProgress} />
             </div>
         </div>

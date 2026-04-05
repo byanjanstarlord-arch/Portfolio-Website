@@ -23,7 +23,7 @@ export default function BackgroundMarquee() {
                         key={idx}
                         className="text-[20vw] font-black leading-none uppercase px-8"
                         style={{
-                            WebkitTextStroke: "2px #dae2fd",
+                            WebkitTextStroke: "2px #ffffff",
                             color: "transparent",
                         }}
                     >
@@ -48,7 +48,7 @@ export default function BackgroundMarquee() {
                         key={idx}
                         className="text-[20vw] font-black leading-none uppercase px-8"
                         style={{
-                            WebkitTextStroke: "2px #89ceff",
+                            WebkitTextStroke: "2px #ffffff",
                             color: "transparent",
                         }}
                     >

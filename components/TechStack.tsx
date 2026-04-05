@@ -13,7 +13,7 @@ export default function TechStack() {
     return (
         <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden rounded-2xl border border-white/5 bg-[var(--color-surface-low)] group">
             {/* Ambient background glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#89ceff]/5 to-[#4edea3]/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff]/5 to-[#ffffff]/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
             {/* Badge Cloud */}
             <div className="flex flex-wrap justify-center gap-4 p-8 relative z-10 max-w-lg">
@@ -45,7 +45,7 @@ export default function TechStack() {
                                     repeat: Infinity
                                 }
                             }}
-                            className="px-6 py-3 rounded-full bg-[var(--color-surface-container)] border border-white/10 text-[#dae2fd]/80 font-medium tracking-wide shadow-lg backdrop-blur-md cursor-pointer transition-colors duration-300 relative overflow-hidden"
+                            className="px-6 py-3 rounded-full bg-[var(--color-surface-container)] border border-white/10 text-[#ffffff]/80 font-medium tracking-wide shadow-lg backdrop-blur-md cursor-pointer transition-colors duration-300 relative overflow-hidden"
                             style={{
                                 boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)"
                             }}

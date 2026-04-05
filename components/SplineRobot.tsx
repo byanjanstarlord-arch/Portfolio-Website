@@ -43,7 +43,7 @@ export default function SplineRobot() {
             </Suspense>
 
             {/* Failsafe Overlay Mask to hide the 'Built with Spline' watermark */}
-            <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 w-[160px] h-[50px] bg-[#0b1326] z-50 rounded-lg"></div>
+            <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 w-[160px] h-[50px] bg-[#000000] z-50 rounded-lg"></div>
         </div>
     );
 }
@@ -60,9 +60,9 @@ function LoaderSkeleton() {
                     repeat: Infinity,
                     repeatType: "reverse"
                 }}
-                className="w-24 h-24 rounded-full border border-[#89ceff]/40 shadow-[0_0_20px_rgba(137,206,255,0.3)] bg-gradient-to-tr from-[#89ceff]/10 to-transparent flex items-center justify-center"
+                className="w-24 h-24 rounded-full border border-[#ffffff]/40 shadow-[0_0_20px_rgba(255,255,255,0.1)] bg-gradient-to-tr from-[#ffffff]/10 to-transparent flex items-center justify-center"
             >
-                <div className="w-12 h-12 rounded-full border-t border-[#4edea3] animate-spin"></div>
+                <div className="w-12 h-12 rounded-full border-t border-[#ffffff] animate-spin"></div>
             </motion.div>
             <motion.p
                 initial={{ opacity: 0.2 }}
@@ -72,7 +72,7 @@ function LoaderSkeleton() {
                     repeat: Infinity,
                     repeatType: "reverse",
                 }}
-                className="text-[#89ceff]/60 text-sm font-mono tracking-widest uppercase"
+                className="text-[#ffffff]/60 text-sm font-mono tracking-widest uppercase"
             >
                 INITIALIZING 3D ROBOT_
             </motion.p>
