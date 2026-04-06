@@ -1,13 +1,45 @@
 "use client";
 
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Component, Suspense, lazy, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Lazy load the heavy Spline library (and the runtime inside it)
 const Spline = lazy(() => import('@splinetool/react-spline'));
+const SCENE_URL = 'https://prod.spline.design/indDE8xOTBrpPckM/scene.splinecode';
+
+type ErrorBoundaryProps = {
+    onError: () => void;
+    children: React.ReactNode;
+};
+
+type ErrorBoundaryState = {
+    hasError: boolean;
+};
+
+class SplineErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+    state: ErrorBoundaryState = { hasError: false };
+
+    static getDerivedStateFromError(): ErrorBoundaryState {
+        return { hasError: true };
+    }
+
+    componentDidCatch() {
+        this.props.onError();
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return <SplineFallback />;
+        }
+
+        return this.props.children;
+    }
+}
 
 export default function SplineRobot() {
     const [isScrolling, setIsScrolling] = useState(false);
+    const [isSceneReachable, setIsSceneReachable] = useState<boolean | null>(null);
+    const [hasSplineError, setHasSplineError] = useState(false);
 
     // Optimization: WebGL raycasting during page scroll causes massive main-thread lag.
     // By detecting when the user scrolls and briefly turning off pointer-events, 
@@ -27,6 +59,47 @@ export default function SplineRobot() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolling]);
 
+    useEffect(() => {
+        const controller = new AbortController();
+
+        const checkSceneAvailability = async () => {
+            try {
+                const response = await fetch(SCENE_URL, {
+                    method: 'GET',
+                    cache: 'no-store',
+                    signal: controller.signal,
+                });
+
+                setIsSceneReachable(response.ok);
+            } catch {
+                setIsSceneReachable(false);
+            }
+        };
+
+        checkSceneAvailability();
+
+        return () => controller.abort();
+    }, []);
+
+    useEffect(() => {
+        const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+            const reason =
+                typeof event.reason === 'string'
+                    ? event.reason
+                    : event.reason?.message || '';
+
+            if (reason.includes('Failed to fetch')) {
+                setHasSplineError(true);
+                event.preventDefault();
+            }
+        };
+
+        window.addEventListener('unhandledrejection', handleUnhandledRejection);
+        return () => window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    }, []);
+
+    const shouldShowFallback = hasSplineError || isSceneReachable === false;
+
     return (
         <div 
             className="w-full relative flex items-center justify-center h-[350px] md:h-[500px] spline-container transform-gpu"
@@ -35,12 +108,22 @@ export default function SplineRobot() {
                 willChange: 'transform' // Force dedicated compositing layer to stop re-paints
             }}
         >
-            <Suspense fallback={<LoaderSkeleton />}>
-                <Spline
-                    scene="https://prod.spline.design/indDE8xOTBrpPckM/scene.splinecode"
-                    className="w-full h-full object-contain cursor-grab active:cursor-grabbing"
-                />
-            </Suspense>
+            {shouldShowFallback ? (
+                <SplineFallback />
+            ) : (
+                <SplineErrorBoundary onError={() => setHasSplineError(true)}>
+                    <Suspense fallback={<LoaderSkeleton />}>
+                        {isSceneReachable === null ? (
+                            <LoaderSkeleton />
+                        ) : (
+                            <Spline
+                                scene={SCENE_URL}
+                                className="w-full h-full object-contain cursor-grab active:cursor-grabbing"
+                            />
+                        )}
+                    </Suspense>
+                </SplineErrorBoundary>
+            )}
 
             {/* Failsafe Overlay Mask to hide the 'Built with Spline' watermark */}
             <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 w-[160px] h-[50px] bg-[#000000] z-50 rounded-lg"></div>
@@ -76,6 +159,17 @@ function LoaderSkeleton() {
             >
                 INITIALIZING 3D ROBOT_
             </motion.p>
+        </div>
+    );
+}
+
+function SplineFallback() {
+    return (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-6">
+            <p className="text-white/85 text-lg md:text-xl font-semibold">3D preview unavailable</p>
+            <p className="text-white/55 text-sm md:text-base max-w-md">
+                The interactive model could not be loaded from the network right now.
+            </p>
         </div>
     );
 }
