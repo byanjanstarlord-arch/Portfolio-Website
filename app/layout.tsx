@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, Covered_By_Your_Grace } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -32,8 +32,53 @@ const quiteGood = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Creative Developer",
-  description: "A high-end scrollytelling personal portfolio website.",
+  metadataBase: new URL("https://byanjanbehera.me"),
+  title: "Byanjan Behera | Portfolio",
+  description:
+    "Hi, I'm Byanjan Behera - a passionate Full Stack Developer who loves building modern, responsive, and scalable web applications. Explore my projects, skills, and creative work in web development.",
+  keywords: [
+    "Byanjan Behera",
+    "Full Stack Developer",
+    "Web Developer",
+    "Portfolio",
+    "React Developer",
+    "Next.js Developer",
+    "JavaScript Developer",
+    "Frontend Developer",
+    "Backend Developer",
+  ],
+  authors: [{ name: "Byanjan Behera" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "Byanjan Behera | Full Stack Developer Portfolio",
+    description:
+      "Explore the portfolio of Byanjan Behera, a Full Stack Developer building modern and scalable web applications.",
+    url: "https://byanjanbehera.me",
+    type: "website",
+    images: [
+      {
+        url: "/new1.png",
+        width: 1200,
+        height: 630,
+        alt: "Byanjan Behera Portfolio Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Byanjan Behera | Full Stack Developer Portfolio",
+    description:
+      "Full Stack Developer portfolio showcasing projects, skills, and experience.",
+    images: ["/new1.png"],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
