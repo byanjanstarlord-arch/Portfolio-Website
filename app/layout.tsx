@@ -33,7 +33,7 @@ const quiteGood = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://byanjanbehera.me"),
-  title: "Byanjan Behera | Portfolio",
+  title: "Byanjan Behera",
   description:
     "Hi, I'm Byanjan Behera - a passionate Full Stack Developer who loves building modern, responsive, and scalable web applications. Explore my projects, skills, and creative work in web development.",
   keywords: [
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Byanjan Behera | Full Stack Developer Portfolio",
+    title: "Byanjan Behera",
     description:
       "Explore the portfolio of Byanjan Behera, a Full Stack Developer building modern and scalable web applications.",
     url: "https://byanjanbehera.me",
@@ -69,11 +69,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Byanjan Behera | Full Stack Developer Portfolio",
+    title: "Byanjan Behera",
     description:
       "Full Stack Developer portfolio showcasing projects, skills, and experience.",
     images: ["/new1.png"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/web-app-manifest-192x192.png", type: "image/png", sizes: "192x192" },
+      { url: "/web-app-manifest-512x512.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
