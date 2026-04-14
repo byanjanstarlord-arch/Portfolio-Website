@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Byanjan Behera",
+    title: "Byanjan Behera | Full Stack Developer Portfolio",
     description:
       "Explore the portfolio of Byanjan Behera, a Full Stack Developer building modern and scalable web applications.",
     url: "https://byanjanbehera.me",
